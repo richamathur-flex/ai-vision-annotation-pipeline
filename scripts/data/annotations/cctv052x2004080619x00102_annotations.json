@@ -1,0 +1,453 @@
+{
+  "info": {
+    "description": "Auto-annotated toll road vehicle detection",
+    "version": "1.0",
+    "year": 2026,
+    "contributor": "Richa Mathur",
+    "date_created": "2026-04-15 18:18:17",
+    "url": "https://github.com/richamathur-flex/ai-vision-annotation-pipeline"
+  },
+  "licenses": [
+    {
+      "id": 1,
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "images": [
+    {
+      "id": 1,
+      "file_name": "cctv052x2004080619x00102_frame_000005.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 2,
+      "file_name": "cctv052x2004080619x00102_frame_000010.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 3,
+      "file_name": "cctv052x2004080619x00102_frame_000015.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 4,
+      "file_name": "cctv052x2004080619x00102_frame_000020.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 5,
+      "file_name": "cctv052x2004080619x00102_frame_000025.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 6,
+      "file_name": "cctv052x2004080619x00102_frame_000030.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 7,
+      "file_name": "cctv052x2004080619x00102_frame_000035.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 8,
+      "file_name": "cctv052x2004080619x00102_frame_000040.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 9,
+      "file_name": "cctv052x2004080619x00102_frame_000045.png",
+      "width": 320,
+      "height": 240
+    },
+    {
+      "id": 10,
+      "file_name": "cctv052x2004080619x00102_frame_000050.png",
+      "width": 320,
+      "height": 240
+    }
+  ],
+  "annotations": [
+    {
+      "id": 1,
+      "image_id": 5,
+      "category_id": 1,
+      "bbox": [
+        281.77,
+        191.31,
+        38.09,
+        29.88
+      ],
+      "area": 1137.97,
+      "segmentation": [
+        [
+          281.7676086425781,
+          191.30929565429688,
+          319.8565979003906,
+          191.30929565429688,
+          319.8565979003906,
+          221.18600463867188,
+          281.7676086425781,
+          221.18600463867188
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.3834,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 2,
+      "image_id": 6,
+      "category_id": 1,
+      "bbox": [
+        252.95,
+        162.14,
+        33.83,
+        24.98
+      ],
+      "area": 844.87,
+      "segmentation": [
+        [
+          252.94522094726562,
+          162.13565063476562,
+          286.7702331542969,
+          162.13565063476562,
+          286.7702331542969,
+          187.11346435546875,
+          252.94522094726562,
+          187.11346435546875
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.5671,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 3,
+      "image_id": 7,
+      "category_id": 4,
+      "bbox": [
+        233.8,
+        141.63,
+        25.79,
+        21.17
+      ],
+      "area": 545.93,
+      "segmentation": [
+        [
+          233.79714965820312,
+          141.62777709960938,
+          259.5827331542969,
+          141.62777709960938,
+          259.5827331542969,
+          162.79965209960938,
+          233.79714965820312,
+          162.79965209960938
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.5236,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 4,
+      "image_id": 8,
+      "category_id": 4,
+      "bbox": [
+        221.22,
+        126.63,
+        20.6,
+        17.18
+      ],
+      "area": 353.95,
+      "segmentation": [
+        [
+          221.2152099609375,
+          126.62545776367188,
+          241.8199462890625,
+          126.62545776367188,
+          241.8199462890625,
+          143.8033447265625,
+          221.2152099609375,
+          143.8033447265625
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.385,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 5,
+      "image_id": 8,
+      "category_id": 1,
+      "bbox": [
+        221.15,
+        126.11,
+        20.61,
+        17.8
+      ],
+      "area": 366.85,
+      "segmentation": [
+        [
+          221.14566040039062,
+          126.11396789550781,
+          241.7515869140625,
+          126.11396789550781,
+          241.7515869140625,
+          143.9169464111328,
+          221.14566040039062,
+          143.9169464111328
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.3008,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 6,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        235.71,
+        186.67,
+        29.85,
+        23.07
+      ],
+      "area": 688.6,
+      "segmentation": [
+        [
+          235.70733642578125,
+          186.66519165039062,
+          265.55853271484375,
+          186.66519165039062,
+          265.55853271484375,
+          209.73300170898438,
+          235.70733642578125,
+          209.73300170898438
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.4861,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 7,
+      "image_id": 9,
+      "category_id": 1,
+      "bbox": [
+        213.12,
+        112.76,
+        18.03,
+        16.97
+      ],
+      "area": 305.94,
+      "segmentation": [
+        [
+          213.12217712402344,
+          112.75633239746094,
+          231.15281677246094,
+          112.75633239746094,
+          231.15281677246094,
+          129.72401428222656,
+          213.12217712402344,
+          129.72401428222656
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.4458,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 8,
+      "image_id": 9,
+      "category_id": 4,
+      "bbox": [
+        213.07,
+        113.04,
+        18.35,
+        16.77
+      ],
+      "area": 307.66,
+      "segmentation": [
+        [
+          213.07444763183594,
+          113.04161071777344,
+          231.4242706298828,
+          113.04161071777344,
+          231.4242706298828,
+          129.80819702148438,
+          213.07444763183594,
+          129.80819702148438
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.3166,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 9,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        193.42,
+        191.93,
+        30.01,
+        22.57
+      ],
+      "area": 677.32,
+      "segmentation": [
+        [
+          193.41806030273438,
+          191.92779541015625,
+          223.42660522460938,
+          191.92779541015625,
+          223.42660522460938,
+          214.49871826171875,
+          193.41806030273438,
+          214.49871826171875
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.6263,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    },
+    {
+      "id": 10,
+      "image_id": 10,
+      "category_id": 1,
+      "bbox": [
+        215.04,
+        159.16,
+        25.11,
+        18.63
+      ],
+      "area": 467.61,
+      "segmentation": [
+        [
+          215.04087829589844,
+          159.1558837890625,
+          240.1465606689453,
+          159.1558837890625,
+          240.1465606689453,
+          177.78167724609375,
+          215.04087829589844,
+          177.78167724609375
+        ]
+      ],
+      "iscrowd": 0,
+      "confidence": 0.5985,
+      "attributes": {
+        "axle_count": -1,
+        "direction": "unknown",
+        "lane": -1,
+        "is_occluded": false,
+        "is_truncated": false,
+        "group_id": 0,
+        "needs_review": true
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "car",
+      "supercategory": "vehicle"
+    },
+    {
+      "id": 2,
+      "name": "motorcycle",
+      "supercategory": "vehicle"
+    },
+    {
+      "id": 3,
+      "name": "bus",
+      "supercategory": "vehicle"
+    },
+    {
+      "id": 4,
+      "name": "truck",
+      "supercategory": "vehicle"
+    }
+  ]
+}
