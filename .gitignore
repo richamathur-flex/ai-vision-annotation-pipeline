@@ -205,3 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+# Project-specific large/local files
+data/raw_videos/*.avi
+data/raw_videos/*.mp4
+*.pt
+data/sample_frames/
+data/annotations/
+venv/
