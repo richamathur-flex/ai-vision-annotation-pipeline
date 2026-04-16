@@ -1,6 +1,6 @@
 # AI Vision Annotation Pipeline
 
-**End-to-end AI system for toll road vehicle detection & axle counting**
+**End-to-end AI system for vehicle detection, axle counting & traffic analysis**
 
 Full ML pipeline combining Computer Vision (YOLOv8) with LLM-powered analysis (Claude, GPT-4o) orchestrated via LangGraph. Built by [Richa Mathur](https://linkedin.com/in/richamathurr).
 
@@ -8,13 +8,13 @@ Full ML pipeline combining Computer Vision (YOLOv8) with LLM-powered analysis (C
 
 ---
 
-## 🎯 What This Project Does
+## 🎯 Overview
 
-Automates vehicle detection and traffic analysis for toll road surveillance — a real-world problem I worked on at **Oracle for HCTRA** (Harris County Toll Road Authority) with 32,000+ videos across 75+ cameras. This open-source version demonstrates the same pipeline using free Kaggle CCTV data.
+Automated vehicle detection and traffic analysis system for toll road surveillance. Demonstrates the complete ML lifecycle from raw video to deployed multi-agent AI pipeline.
 
 **Key capabilities:**
 - Automated vehicle detection (car, truck, bus, motorcycle)
-- Axle count estimation for toll calculation
+- Axle count estimation for toll classification
 - Multi-model AI orchestration (YOLO + GPT-4o + Claude)
 - REST API deployment with FastAPI
 - Interactive review dashboard with Streamlit
@@ -56,6 +56,8 @@ Trained YOLOv8n on 118 images (30 epochs, CPU ~5 minutes):
 
 *Truck mAP lower due to class imbalance (6 truck samples vs 26 cars in validation). Addressable with data augmentation and active learning.*
 
+**Dataset:** Publicly available traffic CCTV footage from Kaggle Highway Traffic Videos Dataset.
+
 ---
 
 ## 🚀 Quick Start
@@ -87,7 +89,7 @@ cp env.example .env
 ### Run the Pipeline
 
 ```bash
-# 1. Auto-annotate videos
+# 1. Auto-annotate videos (YOLOv8 detects vehicles → COCO JSON)
 python scripts/auto_annotate.py --video-dir data/raw_videos/ --all
 
 # 2. Train custom YOLOv8 model
@@ -95,7 +97,7 @@ cd models && python train_yolo.py
 
 # 3. Start the detection API
 cd inference && python api.py
-# Open http://localhost:8000/docs
+# Open http://localhost:8000/docs for Swagger UI
 
 # 4. Generate traffic reports with Claude
 cd agents && python claude_analyzer.py --input ../inference/results.json
@@ -118,7 +120,7 @@ ai-vision-annotation-pipeline/
 │   └── coco_to_yolo.py        # Format converter
 ├── models/
 │   ├── train_yolo.py          # Fine-tune YOLOv8
-│   └── weights/best.pt        # Trained model
+│   └── weights/best.pt        # Trained model (gitignored)
 ├── inference/
 │   ├── api.py                 # FastAPI REST endpoint
 │   ├── detect.py              # CLI detection
@@ -155,42 +157,57 @@ ai-vision-annotation-pipeline/
 
 ---
 
-## 🎓 What I Learned Building This
+## 🧠 How the Multi-Agent Pipeline Works
 
-1. **Training data quality > model complexity** — 148 well-annotated images outperformed 1000s of low-quality ones
+The LangGraph workflow has four nodes with conditional routing:
+
+1. **YOLO Detection** — Fast CV model runs on video frames, outputs bounding boxes and confidence scores
+2. **Confidence Check** — Routing node: if any detection has confidence <0.5, flag for GPT-4o review
+3. **GPT-4o Vision (conditional)** — Only invoked for low-confidence frames. Provides second opinion with reasoning about occlusion, lane position, and axle counts
+4. **Claude Analysis** — Synthesizes YOLO detections + GPT-4o context into structured natural language traffic report
+
+This pattern combines the **speed of CV models** with the **reasoning of LLMs** — each model used where it excels.
+
+---
+
+## 🎓 Key Learnings
+
+1. **Training data quality > model complexity** — 148 well-annotated images produced strong results (80.6% mAP)
 2. **Multi-model orchestration beats single models** — YOLO's speed + GPT-4o's reasoning is better than either alone  
-3. **Human-in-the-loop is production reality** — Auto-annotation with manual review is how real ML teams work
+3. **Human-in-the-loop automation** — Auto-annotation with conditional review is a production-grade pattern
 4. **Deployment matters** — A model sitting in a notebook is useless. FastAPI + Streamlit makes it real
 
 ---
 
 ## 📸 Screenshots
 
-### API Documentation (FastAPI auto-generated)
+### FastAPI Auto-Generated Documentation
 ![FastAPI Docs](docs/images/fastapi_docs.png)
 
-### Streamlit Review App
+### Streamlit Interactive Review App
 ![Streamlit App](docs/images/streamlit_app.png)
 
-### LangGraph Pipeline Output
+### LangGraph Multi-Agent Pipeline Output
 ![Pipeline Output](docs/images/pipeline_output.png)
 
 ---
 
-## 🔗 Related Work
+## 🔮 Future Enhancements
 
-This project extends the principles I applied at **Oracle on the HCTRA project** (2024-2025), where I led annotation for 32,000+ toll camera videos. While that work used Oracle's internal Vision API and CVAT, this open-source version demonstrates the same methodology using free tools — making it a useful reference for anyone building similar pipelines.
+- **Docker containerization** for portable deployment
+- **MLflow integration** for experiment tracking
+- **Active learning loop** — route low-confidence GPT-4o labels back for model retraining
+- **Vector store integration** (Pinecone/Weaviate) for similar-frame retrieval
+- **Multi-camera aggregation** for regional traffic analytics
 
 ---
 
-## 👤 About the Author
+## 👤 About
 
 **Richa Mathur** — AI Engineer specializing in Agentic AI, Computer Vision, and Cloud Solutions  
 📧 richa.agenticai@gmail.com  
 💼 [LinkedIn](https://linkedin.com/in/richamathurr)  
 📍 Dallas, TX
-
-**Certifications:** OCI GenAI Professional, OCI AI Foundations, OCI Data Science Professional, AI Vector Search Professional, Generative AI (Microsoft/LinkedIn), Certified ScrumMaster
 
 ---
 
@@ -200,4 +217,4 @@ MIT License — see [LICENSE](LICENSE) file
 
 ---
 
-*Built with care to demonstrate the full lifecycle of modern AI engineering: from raw data to annotated datasets to trained models to deployed APIs to intelligent agent pipelines.*
+*Built to demonstrate the full lifecycle of modern AI engineering: from raw data to annotated datasets to trained models to deployed APIs to intelligent multi-agent pipelines.*
